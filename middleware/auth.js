@@ -52,7 +52,6 @@ const createUserToken = (req, user) => {
         id: user._id,
         userName: user.userName,
         email: user.email,
-        motto: user.motto,
         dimension: user.dimension,
         rickOrMorty: user.rickOrMorty,
         comments: user.comments,
