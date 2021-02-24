@@ -27,18 +27,20 @@ router.post('/signup', (req, res) => {
     .catch(err => console.log(`Error creating User ${err}`))
 })
 
-router.put('/update',  (req, res) => {
-  console.log('11111', req.body.userName)
-  User.findOneAndUpdate({userName: req.body.userName}, {email: req.body.email, userName: req.body.userName, email: req.body.email, rickOrMorty: req.body.rickOrMorty })
-  .then(user => ({
-    userName: req.body.userName,
-    email: req.body.email,
-    rickOrMorty: req.body.rickOrMorty
-  }))
+router.put('/update', (req, res) => {
+  console.log(req.body)
+  User.findByIdAndUpdate(req.body.id, {email: req.body.email, userName: req.body.userName, dimension: req.body.dimension, rickOrMorty: req.body.rickOrMorty })
+  .then(updatedUser => {
+    res.status(200)
+    res.send('/profile')
+  })
+  .catch(err => {
+    console.log(err)
+  })
 })
 
-router.post('/profile',  (req, res) => {
-  User.remove({_id: user._id})
+router.delete('/profile', requireToken, (req, res) => {
+  User.findByIdAndRemove(req.user.id)
 })
 
 // Example of how to protect a route with 
