@@ -28,7 +28,7 @@ router.post('/signup', (req, res) => {
 })
 
 router.put('/update', (req, res) => {
-  console.log(req.body)
+  console.log('1111', req.body)
   User.findByIdAndUpdate(req.body.id, {email: req.body.email, userName: req.body.userName, dimension: req.body.dimension, rickOrMorty: req.body.rickOrMorty })
   .then(updatedUser => {
     res.status(200)
@@ -39,8 +39,9 @@ router.put('/update', (req, res) => {
   })
 })
 
-router.delete('/profile', requireToken, (req, res) => {
-  User.findByIdAndRemove(req.user.id)
+router.delete('/profile:id', (req, res) => {
+  console.log(req.params)
+  User.findByIdAndRemove(req.body.id)
 })
 
 // Example of how to protect a route with 
