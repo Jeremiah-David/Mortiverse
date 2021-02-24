@@ -4,12 +4,7 @@ const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const { createUserToken, requireToken } = require('../middleware/auth')
 const passport = require('passport')
-<<<<<<< HEAD
 const Character = require('../models/Character')
-=======
-const methodOverride = require('method-override')
-
->>>>>>> 0acd4df325cda635785001a1ff60f11aefdb4441
 
 router.post('/login', (req, res) => {
   User.findOne({ email: req.body.email })
@@ -32,24 +27,9 @@ router.post('/signup', (req, res) => {
     .catch(err => console.log(`Error creating User ${err}`))
 })
 
-<<<<<<< HEAD
-router.get('/characters', (req, res) => {
-
-  Character.find({})
-  .then(foundRick => console.log(foundRick)) 
-  .then(foundRick => {
-
-    res.send(foundRick)
-  })
-
-
-      .catch(err => console.log('Error getting characters In: ', err))
-})
-
-
-=======
-router.post('/update', requireToken, (req, res) => {
-  User.findOneAndUpdate({_id: user._id}, {email: req.body.email, userName: req.body.userName, email: req.body.email, rickOrMorty: req.body.rickOrMorty })
+router.put('/update',  (req, res) => {
+  console.log('11111', req.body.userName)
+  User.findOneAndUpdate({userName: req.body.userName}, {email: req.body.email, userName: req.body.userName, email: req.body.email, rickOrMorty: req.body.rickOrMorty })
   .then(user => ({
     userName: req.body.userName,
     email: req.body.email,
@@ -57,10 +37,9 @@ router.post('/update', requireToken, (req, res) => {
   }))
 })
 
-router.post('/profile', requireToken, (req, res) => {
+router.post('/profile',  (req, res) => {
   User.remove({_id: user._id})
 })
->>>>>>> 0acd4df325cda635785001a1ff60f11aefdb4441
 
 // Example of how to protect a route with 
 // PRIVATE
