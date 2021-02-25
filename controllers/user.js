@@ -4,10 +4,6 @@ const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const { createUserToken, requireToken } = require('../middleware/auth')
 const passport = require('passport')
-<<<<<<< HEAD
-const Character = require('../models/Character')
-=======
->>>>>>> a27ddcb6b66118a04e5b4b8488b619d25a2f87af
 
 router.post('/login', (req, res) => {
   User.findOne({ email: req.body.email })
@@ -42,11 +38,6 @@ router.put('/update', (req, res) => {
   })
 })
 
-<<<<<<< HEAD
-router.delete('/profile:id', (req, res) => {
-  console.log(req.params)
-  User.findByIdAndRemove(req.body.id)
-=======
 router.post('/profile', (req, res) => {
   console.log('Blue', req.body.id)
   User.findByIdAndRemove(req.body.id)
@@ -55,7 +46,6 @@ router.post('/profile', (req, res) => {
     res.status(200)
     res.send('/signup')
   })
->>>>>>> a27ddcb6b66118a04e5b4b8488b619d25a2f87af
 })
 
 // Example of how to protect a route with 
