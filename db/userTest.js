@@ -1,15 +1,21 @@
 const axios = require('axios')
 const Episode = require('../models/Episode')
+const Theory = require('../models/ConspiracyTheory')
 
-Episode.updateOne(
-    {episode: 'S04E08'},
-    {
-        synopsis: `Morty challenges Rick to build him the real-life equivalent of a "save game" function to live without consequence. Also, there's a giant vat of acid.`,
-        link: 'https://rickandmorty.fandom.com/wiki/The_Vat_of_Acid_Episode'
-    }, err => {
+Theory.create({body: 'Three theories establishes a pattern?'}, err => {
     if(err) return console.log(err)
     process.exit()
 })
+
+// Episode.updateOne(
+//     {episode: 'S04E08'},
+//     {
+//         synopsis: `Morty challenges Rick to build him the real-life equivalent of a "save game" function to live without consequence. Also, there's a giant vat of acid.`,
+//         link: 'https://rickandmorty.fandom.com/wiki/The_Vat_of_Acid_Episode'
+//     }, err => {
+//     if(err) return console.log(err)
+//     process.exit()
+// })
 
 
 // function locationEntry() {
