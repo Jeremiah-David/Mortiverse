@@ -25,8 +25,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 9ab1fd1fd83cfb2e2a769ba99c888b34fc7c035d
   rickOrMorty: {
     type: String,
     required: true
