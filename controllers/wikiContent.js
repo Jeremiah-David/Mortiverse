@@ -17,7 +17,20 @@ router.post('/theories', (req, res) => {
     console.log(req.body)
     ConspiracyTheory.create({
         author: req.body.author,
-        body: req.body.theory
+        body: req.body.theory,
+        theorist: req.body.theorist
+    })
+})
+
+router.post('/comments', (req, res) => {
+    ConspiracyTheory.findById(req.body.theoryId)
+    .then(theory => {
+        theory.comments.push({
+            author: req.body.author,
+            body: req.body.comment,
+            userName: req.body.commenter
+        })
+        theory.save()
     })
 })
 
