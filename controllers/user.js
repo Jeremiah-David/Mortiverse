@@ -53,14 +53,4 @@ router.get('/private', requireToken, (req, res) => {
   return res.json({ 'message': 'thou hath been granted permission to access this route.' })
 })
 
-<<<<<<< HEAD
-
-// test route below:
-// router.get('/random', (req, res) => {
-//   console.log(req.user)
-//   return res.json({'message': 'thou hath been granted permission to access this route.'})
-// })
-
-=======
->>>>>>> 227a60bb4384bc82bb6bc072b75f91ad7de94ca0
 module.exports = router
