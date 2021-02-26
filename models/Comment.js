@@ -3,11 +3,7 @@ const mongoose = require('../db/connection')
 const options = {
   timestamps: true,
   toJSON: {
-    virtuals: true//,
-    // transform: (_doc, userDocToReturn) => {
-    //   delete userDocToReturn.password
-    //   return userDocToReturn
-    // }
+    virtuals: true
   }
 }
 
