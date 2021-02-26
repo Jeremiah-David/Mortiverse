@@ -48,9 +48,12 @@ router.post('/profile', (req, res) => {
   })
 })
 
+<<<<<<< HEAD
 router.get('/private', requireToken, (req, res) => {
   console.log(req.user)
   return res.json({ 'message': 'thou hath been granted permission to access this route.' })
 })
 
+=======
+>>>>>>> f9b8f7978f856a618455e0c3abc5fe36a4315c98
 module.exports = router

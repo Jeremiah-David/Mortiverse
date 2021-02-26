@@ -2,10 +2,16 @@ const axios = require('axios')
 const Episode = require('../models/Episode')
 const Theory = require('../models/ConspiracyTheory')
 
-Theory.create({body: 'Three theories establishes a pattern?'}, err => {
+Theory.remove({}, err => {
     if(err) return console.log(err)
+    console.log('All entries deleted')
     process.exit()
 })
+
+// Theory.create({body: 'Three theories establishes a pattern?'}, err => {
+//     if(err) return console.log(err)
+//     process.exit()
+// })
 
 // Episode.updateOne(
 //     {episode: 'S04E08'},
